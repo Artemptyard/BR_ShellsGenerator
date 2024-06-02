@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Buckshot Roulette Shells Generator</title>
+    <link rel="shortcut icon" href="..\static\png\site_icon.jpg" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\body.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\header.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\footer.css'>
+    <script>
+        // JavaScript to rotate the card after 3 seconds
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                rotateCard();
+            }, 1000); // 3000 milliseconds (3 seconds)
+
+            function rotateCard() {
+                var card = document.getElementById("myCard");
+                card.style.transform = "rotateX(180deg)";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header class="paralax">
+        <h1>Генератор для Buckshot Roulette</h1>
+        <script scr="code/parallax.js"></script>
+    </header>
+    <main>
+        <h2>Основной набор</h2>
+        <div class="card-container">
+            <div id="myCard" class="card">
+                <div class="back">
+                    <div class="shell group1">
+                        <img class="shell-img-back" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group2">
+                        <img class="shell-img-back" src="..\static\png\live.png" alt="shell">
+                    </div>
+                    <div class="shell group3">
+                        <img class="shell-img-back" src="..\static\png\live.png" alt="shell">
+                    </div>
+                    <div class="shell group4">
+                        <img class="shell-img-back" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group5">
+                        <img class="shell-img-back" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group6">
+                        <img class="shell-img-back" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group7">
+                        <img class="shell-img-back" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group8">
+                        <img class="shell-img-back" src="..\static\png\live.png" alt="shell">
+                    </div>
+                </div>
+                <div class="shells">
+                    <div class="shell group1">
+                        <img class="shell-img" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group2">
+                        <img class="shell-img" src="..\static\png\live.png" alt="shell">
+                    </div>
+                    <div class="shell group3">
+                        <img class="shell-img" src="..\static\png\live.png" alt="shell">
+                    </div>
+                    <div class="shell group4">
+                        <img class="shell-img" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group5">
+                        <img class="shell-img" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group6">
+                        <img class="shell-img" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group7">
+                        <img class="shell-img" src="..\static\png\blank.png" alt="shell">
+                    </div>
+                    <div class="shell group8">
+                        <img class="shell-img" src="..\static\png\live.png" alt="shell">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td>Всего пуль:</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Заряженных:</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Холостых:</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <div class="text">
+            <h1>Игра создана исключительно в развлекательных целях и
+                не пытается призвать к каким-либо действиям</h1>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Buckshot Roulette Shells Generator</title>
+    <link rel="shortcut icon" href="..\static\png\site_icon.jpg"/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\body.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\header.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\footer.css'>
+    <script src='..\static\js\flip.js' defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // Function to refresh the page
+        function refreshPage() {
+            location.reload(true);
+        }
+
+        // Listen for the 'refresh' event and trigger the page refresh
+        socket.on('refresh', function() {
+            refreshPage();
+        });
+    </script>
+</head>
+
+<body>
+<header class="paralax">
+<!--    <img class="volume" src="..\static\png\volume on.png">-->
+    <h1>Генератор для Buckshot Roulette</h1>
+    {% if error %}
+        <p class="error">Дилер уже есть, убей его!</p>
+    {% endif %}
+</header>
+<main>
+    <section>
+        <form method="post" action="{{ url_for('restart') }}">
+            <button name="restart_button" type="submit" class="restart" value="{{role}}">Новый раунд</button>
+        </form>
+    </section>
+    <section class="general" style="margin-top: 20px">
+        <h2>Основной набор</h2>
+        <div class="card-container">
+            <div id="myCard1" class="card">
+                <div class="back">
+                    {%for i in range(0, 8)%}
+                        <div class="shell group{{i}}">
+                            <img class="shell-img-back" src="{{shells[0]}}" alt="shell">
+                        </div>
+                    {%endfor%}
+                </div>
+                <div class="shells">
+                    {%for i in range(0, len)%}
+                        <div class="shell group{{i + 1}}">
+                            <img class="shell-img" src="{{shells[i]}}" alt="shell">
+                        </div>
+                    {%endfor%}
+                    {%for i in range(len, 8)%}
+                        <div class="shell group{{i + 1}}">
+                            <img class="shell-img-back" src="{{shells[0]}}" alt="shell">
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th colspan="2" style="text-align: center">Всего пуль:</th>
+                <td colspan="2" style="text-align: center">{{general["shells"]}}</td>
+            </tr>
+            <tr>
+                <th>Заряженных:</th>
+                <td>{{general["lives"]}}</td>
+                <th>Холостых:</th>
+                <td>{{general["blanks"]}}</td>
+            </tr>
+            <tr>
+                <th>Жизней:</th>
+                <td>{{game["lives"]}}</td>
+                <th>Карт:</th>
+                <td>{{game["cards"]}}</td>
+            </tr>
+        </table>
+    </section>
+    <section class="extra">
+        <h2>Дополнительный набор</h2>
+        <div class="card-container">
+            <div id="myCard2" class="card">
+                <div class="back">
+                    {%for i in range(0, 9)%}
+                        <div class="shell group{{i}}">
+                            <img class="shell-img-back" src="{{shells_extra[0]}}" alt="shell">
+                        </div>
+                    {%endfor%}
+                </div>
+                <div class="shells">
+                    {%for i in range(0, 3)%}
+                        <div class="shell group{{i + 1}}">
+                            <img class="shell-img" src="{{shells_extra[i]}}" alt="shell">
+                        </div>
+                    {%endfor%}
+                    {%for i in range(3, 8)%}
+                        <div class="shell group{{i + 1}}">
+                            <img class="shell-img-back" src="{{shells_extra[0]}}" alt="shell">
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th colspan="2" style="text-align: center">Всего пуль:</th>
+                <td colspan="2" style="text-align: center">3</td>
+            </tr>
+            <tr>
+                <th>Заряженных:</th>
+                <td>{{extra["lives"]}}</td>
+                <th>Холостых:</th>
+                <td>{{extra["blanks"]}}</td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <form method="post" action="{{ url_for('change_role') }}">
+            <button name="change_button" type="submit" class="restart" value="{{role}}">{{role}}</button>
+        </form>
+    </section>
+</main>
+<footer>
+    <div class="text">
+        <h1>Игра создана исключительно в развлекательных целях и
+            не пытается призвать к каким-либо действиям</h1>
+    </div>
+</footer>
+</body>
+
+</html>

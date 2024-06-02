@@ -1,0 +1,162 @@
+main {
+    border: 10px ridge whitesmoke;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+main>h2 {
+    color: wheat;
+    font-family: 'Kyiv Type Titling';
+    font-size: 40px;
+    -webkit-text-stroke: 0.1px white;
+    letter-spacing: 2px;
+    margin-left: 20px;
+}
+
+main>p {
+    color: wheat;
+    font-family: 'Kyiv Type Titling';
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+
+.shell-img {
+    height: 250px;
+}
+
+
+.shells {
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    row-gap: 10px;
+    column-gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
+
+.card {
+    width: 150px;
+    height: 270px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.shell {
+    padding-left: 35px;
+    padding-right: 35px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    background-color: rgb(34, 34, 34);
+    border: 5px solid rgb(55, 0, 0);
+    transform: rotateY(-180deg);
+}
+
+.back {
+    width: 150px;
+    height: 270px;
+    background-color: rgb(25, 25, 25);
+    border: 5px solid black;
+}
+
+.shell,
+.back {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .shells {
+        display: grid;
+        grid-template-areas:
+            "A B C D"
+            "E F G H";
+    }
+
+    .area1 {
+        grid-area: A;
+    }
+
+    .area2 {
+        grid-area: B;
+    }
+
+    .area3 {
+        grid-area: C;
+    }
+
+    .area4 {
+        grid-area: D;
+    }
+
+    .area5 {
+        grid-area: E;
+    }
+
+    .area6 {
+        grid-area: F;
+    }
+
+    .area7 {
+        grid-area: G;
+    }
+
+    .area8 {
+        grid-area: H;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    h2 {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    .shells {
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .shell-img {
+        height: 150px;
+    }
+}
+
+
+@media screen and (max-width: 560px) {
+    h2 {
+        font-size: 25px;
+        margin-left: 15px;
+    }
+
+    .shell-img {
+        height: 150px;
+    }
+
+    .shells {
+        display: grid;
+        grid-template-areas:
+            "A B"
+            "C D"
+            "E F"
+            "G H";
+    }
+}
